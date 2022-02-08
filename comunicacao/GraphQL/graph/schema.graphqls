@@ -1,0 +1,49 @@
+type Category {
+    id: ID!
+    name: String!
+    description: String
+    cources: [Cource!]!
+}
+
+type Cource {
+    id: ID!
+    name: String!
+    description: String
+    category: Category!
+    chapters: [Chapter!]
+}
+
+type Chapter {
+    id: ID!
+    name: String!
+    cource: Cource!
+    category: Category!
+}
+
+input NewCategory {
+    name: String!
+    description: String!
+}
+
+input NewCource {
+    name: String!
+    description: String!
+    categoryID: ID!
+}
+
+input NewChapter {
+    name: String!
+    courceID: ID!
+}
+
+type Query {
+    categories: [Category]
+    cources: [Cource]
+    chapters: [Chapter]
+}
+
+type Mutation {
+    createCategory(input: NewCategory!): Category!
+    createCource(input: NewCource!): Cource!
+    createChapter(input: NewChapter!): Chapter!
+}
