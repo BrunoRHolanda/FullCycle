@@ -2,6 +2,7 @@ package application
 
 import (
 	"errors"
+
 	"github.com/asaskevich/govalidator"
 	uuid "github.com/satori/go.uuid"
 )
@@ -109,6 +110,10 @@ func (p *Product) GetID() string {
 
 func (p *Product) GetName() string {
 	return p.Name
+}
+
+func (p *Product) GetStatus() string {
+	return p.Status
 }
 
 func (p *Product) GetPrice() float64 {
